@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .prose {
+    @apply max-w-none;
+  }
+  
+  .prose h1 {
+    @apply text-4xl md:text-6xl font-bold mb-4;
+  }
+  
+  .prose h2 {
+    @apply text-3xl md:text-4xl font-bold mb-4;
+  }
+  
+  .prose p {
+    @apply text-lg md:text-xl mb-6;
+  }
+}
+
+.ProseMirror {
+  @apply outline-none min-h-[2rem] p-2;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  @apply text-gray-400 float-left h-0 pointer-events-none;
+}
+
+/* Styling for selected text */
+.ProseMirror-selectednode {
+  @apply outline-2 outline-blue-500;
+}
+
+/* Hover effect for editable areas */
+.prose [contenteditable="true"]:hover {
+  @apply bg-gray-50 rounded cursor-text;
+}
+
+/* Toolbar animations */
+.group-focus-within\:flex {
+  @apply transition-all duration-200 ease-in-out;
+}
